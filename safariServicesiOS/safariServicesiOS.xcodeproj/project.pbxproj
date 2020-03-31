@@ -13,6 +13,7 @@
 		0C94870D2433C4E80086A774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C94870C2433C4E80086A774 /* Assets.xcassets */; };
 		0C9487102433C4E80086A774 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C94870E2433C4E80086A774 /* LaunchScreen.storyboard */; };
 		0C9487182433C55E0086A774 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9487172433C55E0086A774 /* MainViewController.swift */; };
+		0C94871C2433D9710086A774 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C94871B2433D9710086A774 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0C94870F2433C4E80086A774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C9487112433C4E80086A774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C9487172433C55E0086A774 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0C94871B2433D9710086A774 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				0C9487002433C4E60086A774 /* AppDelegate.swift */,
 				0C9487022433C4E60086A774 /* SceneDelegate.swift */,
 				0C9487172433C55E0086A774 /* MainViewController.swift */,
+				0C94871B2433D9710086A774 /* Alert.swift */,
 				0C94870C2433C4E80086A774 /* Assets.xcassets */,
 				0C94870E2433C4E80086A774 /* LaunchScreen.storyboard */,
 				0C9487112433C4E80086A774 /* Info.plist */,
@@ -140,6 +143,7 @@
 				0C9487012433C4E60086A774 /* AppDelegate.swift in Sources */,
 				0C9487032433C4E60086A774 /* SceneDelegate.swift in Sources */,
 				0C94870B2433C4E60086A774 /* safariServicesiOS.xcdatamodeld in Sources */,
+				0C94871C2433D9710086A774 /* Alert.swift in Sources */,
 				0C9487182433C55E0086A774 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

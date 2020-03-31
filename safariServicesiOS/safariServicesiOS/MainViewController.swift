@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SafariServices
 
 class MainViewController: UIViewController {
 
     // MARK: - UI elements
+
     /// Creates a text field to add a telephone number.
     private lazy var siteTextField: UITextField = {
         let siteTextField = UITextField(frame: .zero)
@@ -36,6 +38,8 @@ class MainViewController: UIViewController {
         return searchSiteButton
     }()
 
+    // MARK: - Application lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
@@ -45,6 +49,9 @@ class MainViewController: UIViewController {
         setupAutolayout()
     }
 
+    // MARK: - Actions
+
+    //
     @objc private func searchSiteButtonAction(_ sender: UIButton) {
         if let urlString = siteTextField.text {
             var urlFormatted = urlString
@@ -52,7 +59,10 @@ class MainViewController: UIViewController {
                 urlFormatted = String(format: "http://%@", urlFormatted)
             }
             guard let url = URL(string: urlFormatted) else { return }
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            let safariViewController = SFSafariViewController(url: url)
+            self.present(safariViewController, animated: true, completion: nil)
+        } else {
+            
         }
     }
 }
