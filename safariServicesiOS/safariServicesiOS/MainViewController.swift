@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
         searchSiteButton.layer.cornerRadius = 35
         searchSiteButton.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         searchSiteButton.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
-//        messageButton.addTarget(self, action: #selector(searchSiteButtonAction(_ :)), for: .allEvents)
+        searchSiteButton.addTarget(self, action: #selector(searchSiteButtonAction(_ :)), for: .allEvents)
 
         return searchSiteButton
     }()
@@ -46,7 +46,14 @@ class MainViewController: UIViewController {
     }
 
     @objc private func searchSiteButtonAction(_ sender: UIButton) {
-        // hi
+        if let urlString = siteTextField.text {
+            var urlFormatted = urlString
+            if !urlFormatted.hasPrefix("http://") {
+                urlFormatted = String(format: "http://%@", urlFormatted)
+            }
+            guard let url = URL(string: urlFormatted) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
 }
 
