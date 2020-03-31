@@ -17,10 +17,12 @@ class MainViewController: UIViewController {
     private lazy var siteTextField: UITextField = {
         let siteTextField = UITextField(frame: .zero)
         siteTextField.translatesAutoresizingMaskIntoConstraints = false
-        siteTextField.placeholder = "Site URL"
-        siteTextField.textContentType = .telephoneNumber
-        siteTextField.keyboardType = .numberPad
+        siteTextField.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        siteTextField.textContentType = .URL
+        siteTextField.keyboardType = .URL
         siteTextField.clearButtonMode = .always
+        siteTextField.attributedPlaceholder = NSAttributedString(string: "Site URL", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)])
+        siteTextField.delegate = self
 
         return siteTextField
     }()
@@ -50,8 +52,6 @@ class MainViewController: UIViewController {
     }
 
     // MARK: - Actions
-
-    //
     @objc private func searchSiteButtonAction(_ sender: UIButton) {
         if let urlString = siteTextField.text {
             var urlFormatted = urlString
@@ -61,13 +61,12 @@ class MainViewController: UIViewController {
             guard let url = URL(string: urlFormatted) else { return }
             let safariViewController = SFSafariViewController(url: url)
             self.present(safariViewController, animated: true, completion: nil)
-        } else {
-            
         }
     }
 }
 
 extension MainViewController {
+    /// Setups UI elements autolayout
     private func setupAutolayout() {
         siteTextField.leftAnchor
             .constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
@@ -80,5 +79,12 @@ extension MainViewController {
         searchSiteButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
         searchSiteButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
         searchSiteButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
+    }
+}
+
+extension MainViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
