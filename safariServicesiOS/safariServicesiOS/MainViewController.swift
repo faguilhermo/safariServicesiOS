@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
         siteTextField.textContentType = .URL
         siteTextField.keyboardType = .URL
         siteTextField.clearButtonMode = .always
-        siteTextField.attributedPlaceholder = NSAttributedString(string: "Site URL", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)])
+        siteTextField.attributedPlaceholder = NSAttributedString(string: "Site URL", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)])
         siteTextField.delegate = self
 
         return siteTextField
