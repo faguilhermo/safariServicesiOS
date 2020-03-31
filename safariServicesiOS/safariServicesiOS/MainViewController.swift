@@ -10,8 +10,58 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    // MARK: - UI elements
+    /// Creates a text field to add a telephone number.
+    private lazy var siteTextField: UITextField = {
+        let siteTextField = UITextField(frame: .zero)
+        siteTextField.translatesAutoresizingMaskIntoConstraints = false
+        siteTextField.placeholder = "Site URL"
+        siteTextField.textContentType = .telephoneNumber
+        siteTextField.keyboardType = .numberPad
+        siteTextField.clearButtonMode = .always
+
+        return siteTextField
+    }()
+
+    /// Creates a button to send messages to the registered number.
+    private lazy var searchSiteButton: UIButton = {
+        let searchSiteButton = UIButton(type: .roundedRect)
+        searchSiteButton.translatesAutoresizingMaskIntoConstraints = false
+        searchSiteButton.setTitle("Acessar site", for: .normal)
+        searchSiteButton.layer.cornerRadius = 35
+        searchSiteButton.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        searchSiteButton.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+//        messageButton.addTarget(self, action: #selector(searchSiteButtonAction(_ :)), for: .allEvents)
+
+        return searchSiteButton
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        view.addSubview(siteTextField)
+        view.addSubview(searchSiteButton)
+
+        setupAutolayout()
+    }
+
+    @objc private func searchSiteButtonAction(_ sender: UIButton) {
+        // hi
+    }
+}
+
+extension MainViewController {
+    private func setupAutolayout() {
+        siteTextField.leftAnchor
+            .constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        siteTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        siteTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        siteTextField.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
+        searchSiteButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        searchSiteButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -40).isActive = true
+        searchSiteButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
+        searchSiteButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
+        searchSiteButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
 }
